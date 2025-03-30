@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ onSubmitGuess }) {
+function GuessInput({ onSubmitGuess, isDisabled = false }) {
   let [value, setValue] = React.useState("");
 
   function handleSubmit(ev) {
@@ -20,6 +20,7 @@ function GuessInput({ onSubmitGuess }) {
           pattern="[A-Z]{5}"
           title="5 letter word"
           value={value}
+          disabled={isDisabled}
           onChange={(ev) => setValue(ev.target.value.toUpperCase())}
         />
       </label>
