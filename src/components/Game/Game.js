@@ -1,5 +1,6 @@
 import React from "react";
 
+import { checkGuess } from "../../game-helpers";
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import GuessInput from "../GuessInput/GuessInput";
@@ -15,7 +16,8 @@ function Game() {
 
   function handleNewGuess(guess) {
     console.log("new guess", guess);
-    setGuesses([...guesses, guess]);
+    const guessResult = checkGuess(guess, answer);
+    setGuesses([...guesses, guessResult]);
   }
 
   return (
